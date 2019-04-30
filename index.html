@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Showing Location on Google Map</title>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2&appId=2197361943922586&autoLogAppEvents=1"></script>
 <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
 function showPosition(){
@@ -44,6 +46,32 @@ function showError(error){
     }
 }
 </script>
+
+<!-- Facebook SDK -->
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{api-version}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+</script>
 <style>
 .button {
   position: relative;
@@ -64,7 +92,8 @@ function showError(error){
 </style>
 </head>
 <body>
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2&appId=801052530291112&autoLogAppEvents=1"></script>
     <div id = "container" style = "font-family: 'Times New Roman', sans-serif;">
         <h1 style= "position: relative; font-size: 45px; text-shadow: 3px 2px lightblue; color: #70D5FF; text-align: center; position: fixed; width: 100%"> I am here</h1>
     </div>
@@ -72,5 +101,7 @@ function showError(error){
     <div id="embedMap" style="width: 600px; height: 480px; position: relative; top: 250px; margin-left: 35%;">
         <!--Google map will be embedded here-->
     </div>
+
+    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="true"></div>
 </body>
 </html>                            
